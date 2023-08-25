@@ -270,7 +270,7 @@ main {
         }
     
         .fixed {
-          background-image: url('/image/desk.jpg');
+          background-image: url('../image/desk.jpg');
           background-position: 50%;
           background-size: cover;
           height: 100%;
