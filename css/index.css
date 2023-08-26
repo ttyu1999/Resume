@@ -23,6 +23,10 @@ h2, h3, h4, h5, h6 {
   line-height: 1.5;
 }
 
+p + p {
+  padding-block-start: 1rem;
+}
+
 a {
   text-decoration: none;
   display: inline-block;
@@ -83,18 +87,12 @@ header {
   }
 }
 
-main .summary .group,
-main .summary .group *:not(.wrap > *),
-main .skill .group :is(h2, h3, dt, dd, li),
-main .experience .group .wrap {
+main *[data-scroll] {
   opacity: 0;
   transition: opacity 0.6s cubic-bezier(0.2, 0.93, 0.88, 0.95) .4s; 
 }
 
-main .summary .group.is-inview,
-main .summary .group *:not(.wrap > *).is-inview,
-main .skill .group :is(h2, h3, dt, dd, li).is-inview,
-main .experience .group .wrap.is-inview {
+main *[data-scroll].is-inview {
   opacity: 1;
 }
 
@@ -114,6 +112,7 @@ main {
 
     & h2 {
       font-size: 4rem;
+      padding-block-end: 3rem;
     }
   }
 
@@ -156,6 +155,7 @@ main {
           padding-block: 1rem;
           
           & h2 {
+            padding-block-end: 0;
             & span:nth-child(1) {
               padding-inline-end: 1rem;
               
@@ -284,18 +284,22 @@ main {
       flex: 2 1 400px;
       display: flex;
       flex-wrap: wrap;
-      gap: 2rem 0;
 
       & h2 {
         flex: 1 1 100%;
       }
 
-      .wrap {
+      .item {
         flex: 1 1 auto;
+
+        & + .item {
+          padding-block-start: 2rem;
+        }
 
         & h3 {
           font-size: 1.5rem;
           position: relative;
+          padding-inline-start: 1rem;
 
           &::before {
             content: '';
@@ -305,6 +309,7 @@ main {
             transform: translateY(-55%);
             width: .3rem;
             height: 60%;
+            background-color: #1f1f1f;
           }
 
           & ~ * {
@@ -330,10 +335,6 @@ main {
 
   .portfolio {
     background-image: linear-gradient(67deg, #f8f8f8 55%, transparent 45%);
-
-    & h2 {
-      padding-block-end: 3rem;
-    }
 
     .pic {
       overflow: hidden;
@@ -389,14 +390,14 @@ main {
 
         & h2 {
           color: #fff;
-          padding-block-end: 3rem;
+          mix-blend-mode: difference;
         }
 
-        .group {
+        .wrap {
           width: min(600px, 100%);
           margin-inline: auto 0;
 
-          .wrap {
+          .item {
             padding-inline-start: 1.25rem;
             display: flex;
             flex-wrap: wrap;
@@ -457,7 +458,7 @@ main {
 
     .group {
       & h2 {
-        font-size: 2rem;
+        font-size: 2.5rem;
       }
     }
     .summary {
@@ -558,6 +559,11 @@ footer {
             }
           }
         }
+      }
+
+      .menu__box {
+        position: fixed;
+        right: 5%;
       }
     }
   }

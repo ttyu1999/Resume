@@ -99,6 +99,7 @@ svg {
   top: 0;
   right: 0;
   transition: margin .2s ease-in-out;
+  cursor: pointer;
 }
 
 nav {
@@ -110,9 +111,6 @@ nav {
   padding-inline: 1rem;
   margin-inline-end: calc(-1 * var(--menu__width));
   transition: margin .2s ease-in-out;
-  -moz-transition: margin .2s ease-in-out;
-  -webkit-transition: margin .2s ease-in-out;
-  -o-transition: margin .2s ease-in-out;
 
   & li {
     list-style-type: none;
@@ -158,8 +156,5 @@ nav {
 }
 
 header:has(.menu__box.active) ~ main {
-  -webkit-transform: translate3d(calc(-1 * var(--menu__width)), 0, 0);
-  -moz-transform: translate3d(calc(-1 * var(--menu__width)), 0, 0);
-  -o-transform: translate3d(calc(-1 * var(--menu__width)), 0, 0);
   transform: translate3d(calc(-1 * var(--menu__width)), 0, 0);
 }
