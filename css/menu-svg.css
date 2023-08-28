@@ -12,6 +12,8 @@ svg {
   height: 60px;
   width: 60px;
   overflow: hidden;
+  display: grid;
+  place-content: center;
 }
 .burger {
   filter: url(#gooeyness);
@@ -24,6 +26,12 @@ svg {
 .menu__box.active .x {
   transform: scale(1);
   transition: transform 400ms 350ms;
+}
+
+.menu__box {
+  [class*="fa-bars"] {
+    display: none;
+  }
 }
 
 .line {
@@ -157,4 +165,25 @@ nav {
 
 header:has(.menu__box.active) ~ main {
   transform: translate3d(calc(-1 * var(--menu__width)), 0, 0);
+}
+
+
+@media (hover: none) {
+  .menu__box {
+    [class*="fa-bars"] {
+      display: block;
+      font-size: 2rem;
+      transition: transform 400ms ease-in-out;
+    }
+
+    & svg.burger {
+      display: none;
+    }
+  }
+
+  .menu__box.active {
+    [class*="fa-bars"] {
+      transform: scale(0);
+    }
+  }
 }
