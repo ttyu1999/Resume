@@ -27,6 +27,10 @@ p + p {
   padding-block-start: 1rem;
 }
 
+a, button, label {
+  user-select: none;
+}
+
 a {
   text-decoration: none;
   display: inline-block;
@@ -360,7 +364,13 @@ main {
         list-style-type: disc;
       }
 
-      & a {
+      & input[type="checkbox"] {
+        display: none;
+      }
+
+      & a, .record {
+        display: inline-block;
+        cursor: pointer;
         color: #fff;
         padding: .5rem 1rem;
         border: 1px solid transparent;
@@ -368,6 +378,7 @@ main {
         transition: color .3s ease-in-out,
         border-color .3s ease-in-out,
         background-color .3s ease-in-out;
+        margin-block: 1rem;
 
         & [class*="fa-"] {
           padding-inline-end: .5rem;
@@ -378,6 +389,19 @@ main {
           background-color: #fff;
           border-color: #1f1f1f;
         }
+      }
+
+      .record-content {
+        display: grid;
+        grid-template-rows: 0fr;
+        transition: grid-template-rows ease-in-out .3s;
+        & > div {
+          overflow: hidden;
+        }
+      }
+
+      & input[type="checkbox"]:checked + .record-content {
+        grid-template-rows: 1fr;
       }
     }
   }
@@ -584,3 +608,17 @@ footer {
     }
   }
 }
+
+@media screen and (max-width: 401px) {
+  main {
+    .portfolio {
+      .txt {
+        & a, .record {
+          font-size: 13px;
+          padding: 0.25rem 0.75rem;
+        }
+      }
+    }
+  }
+}
+
