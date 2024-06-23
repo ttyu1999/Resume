@@ -38,6 +38,7 @@ a {
 
 img {
   max-width: 100%;
+  width: 100%;
   vertical-align: middle;
 }
 
@@ -252,14 +253,14 @@ main {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    gap: 2rem 0;
+    gap: 2rem;
 
     & ul, ol, dl {
       margin-inline-start: 1.5rem;
     }
 
     .fixed__group {
-      flex: 3 1 600px;
+      flex: 3 1 500px;
 
       .fixed__wrap {
         min-height: 100vh;
@@ -362,6 +363,7 @@ main {
 
       & li {
         list-style-type: disc;
+        list-style-position: inside;
       }
 
       & input[type="checkbox"] {
@@ -457,11 +459,23 @@ main {
   .about {
     & h2 {
       text-align: center;
-    }
+      }
 
-    .wrap {
+      .pic {
+        float: left;
+        display: flex;
+        justify-content: center;
+        margin-inline-end: 2rem;
+        margin-block-end: 2rem;
+      }
+      
+      .wrap {
+        & img {
+          max-width: 24rem;
+        }
+
       & h3 ~ * {
-        padding-block-start: 1rem;
+        padding-block-start: 1.5rem;
       }
     }
   }
