@@ -27,6 +27,10 @@ p + p {
   padding-block-start: 1rem;
 }
 
+a, button, label {
+  user-select: none;
+}
+
 a {
   text-decoration: none;
   display: inline-block;
@@ -34,6 +38,7 @@ a {
 
 img {
   max-width: 100%;
+  width: 100%;
   vertical-align: middle;
 }
 
@@ -248,14 +253,14 @@ main {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    gap: 2rem 0;
+    gap: 2rem;
 
     & ul, ol, dl {
       margin-inline-start: 1.5rem;
     }
 
     .fixed__group {
-      flex: 3 1 600px;
+      flex: 3 1 500px;
 
       .fixed__wrap {
         min-height: 100vh;
@@ -358,9 +363,16 @@ main {
 
       & li {
         list-style-type: disc;
+        list-style-position: inside;
       }
 
-      & a {
+      & input[type="checkbox"] {
+        display: none;
+      }
+
+      & a, .record {
+        display: inline-block;
+        cursor: pointer;
         color: #fff;
         padding: .5rem 1rem;
         border: 1px solid transparent;
@@ -368,6 +380,7 @@ main {
         transition: color .3s ease-in-out,
         border-color .3s ease-in-out,
         background-color .3s ease-in-out;
+        margin-block: 1rem;
 
         & [class*="fa-"] {
           padding-inline-end: .5rem;
@@ -378,6 +391,19 @@ main {
           background-color: #fff;
           border-color: #1f1f1f;
         }
+      }
+
+      .record-content {
+        display: grid;
+        grid-template-rows: 0fr;
+        transition: grid-template-rows ease-in-out .3s;
+        & > div {
+          overflow: hidden;
+        }
+      }
+
+      & input[type="checkbox"]:checked + .record-content {
+        grid-template-rows: 1fr;
       }
     }
   }
@@ -433,11 +459,23 @@ main {
   .about {
     & h2 {
       text-align: center;
-    }
+      }
 
-    .wrap {
+      .pic {
+        float: left;
+        display: flex;
+        justify-content: center;
+        margin-inline-end: 2rem;
+        margin-block-end: 2rem;
+      }
+      
+      .wrap {
+        & img {
+          max-width: 24rem;
+        }
+
       & h3 ~ * {
-        padding-block-start: 1rem;
+        padding-block-start: 1.5rem;
       }
     }
   }
@@ -584,3 +622,17 @@ footer {
     }
   }
 }
+
+@media screen and (max-width: 401px) {
+  main {
+    .portfolio {
+      .txt {
+        & a, .record {
+          font-size: 13px;
+          padding: 0.25rem 0.75rem;
+        }
+      }
+    }
+  }
+}
+
