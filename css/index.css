@@ -363,7 +363,7 @@ main {
 
       .account {
         padding: 1rem;
-        background-color: #e3e3e3;
+        
         & > span {
           display: flex;
           flex-wrap: wrap;
