@@ -361,6 +361,20 @@ main {
     .txt {
       padding-block: .5rem;
 
+      .account {
+        padding: 1rem;
+        background-color: #e3e3e3;
+        & > span {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 0 1rem;
+        }
+
+        & > span + span {
+          border-block-start: 1px solid #fff;
+        }
+      }
+
       & li {
         list-style-type: disc;
         list-style-position: inside;
