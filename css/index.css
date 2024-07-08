@@ -363,7 +363,11 @@ main {
 
       .account {
         padding: 1rem;
+<<<<<<< HEAD
+        background-color: #e3e3e3;
+=======
         
+>>>>>>> master
         & > span {
           display: flex;
           flex-wrap: wrap;
@@ -649,4 +653,3 @@ footer {
     }
   }
 }
-
