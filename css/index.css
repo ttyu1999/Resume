@@ -260,7 +260,7 @@ main {
     }
 
     .fixed__group {
-      flex: 3 1 500px;
+      flex: 1 1 300px;
 
       .fixed__wrap {
         min-height: 100vh;
@@ -363,7 +363,11 @@ main {
 
       .account {
         padding: 1rem;
+<<<<<<< HEAD
         background-color: #e3e3e3;
+=======
+        
+>>>>>>> master
         & > span {
           display: flex;
           flex-wrap: wrap;
