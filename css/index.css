@@ -260,7 +260,7 @@ main {
     }
 
     .fixed__group {
-      flex: 3 1 500px;
+      flex: 1 1 300px;
 
       .fixed__wrap {
         min-height: 100vh;
